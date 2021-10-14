@@ -26,6 +26,7 @@ namespace Calculadora_Dinamica
 
             for(int i = 2; i <= 5; i++)
             {
+                // Si i es igual a 5 significa que esta en la ultima fila, la del 0
                 if(i == 5)
                 {
                     Button boton = new Button();
@@ -53,6 +54,9 @@ namespace Calculadora_Dinamica
                         boton.Content = viewbox;
                         TextBlock text = new TextBlock();
                         viewbox.Child = text;
+                        /*Para sacar el numero uso i -2 porque empieza el contador en dos,
+                         * lo multiplico por 3 ya que j ha hecho 3 iterecaiones 
+                         * y como empizar en 0 le sumo 1 para que de el numero*/
                         text.Text = ((i-2) * 3) + j + 1 + "";
                         boton.Tag = ((i - 2) * 3) + j + 1 + "";
                         boton.Click += Boton_Click;
