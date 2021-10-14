@@ -24,9 +24,9 @@ namespace Calculadora_Dinamica
         {
             InitializeComponent();
 
-            for(int i = 0; i < 4; i++)
+            for(int i = 2; i <= 5; i++)
             {
-                if(i == 3)
+                if(i == 5)
                 {
                     Button boton = new Button();
                     FondoGrid.Children.Add(boton);
@@ -38,6 +38,8 @@ namespace Calculadora_Dinamica
                     viewbox.Child = text;
                     text.Text = "0";
                     Grid.SetColumnSpan(boton, 3);
+                    boton.Tag = "0";
+                    boton.Click += Boton_Click;
                 }
                 else
                 {
@@ -51,14 +53,16 @@ namespace Calculadora_Dinamica
                         boton.Content = viewbox;
                         TextBlock text = new TextBlock();
                         viewbox.Child = text;
-                        text.Text = (i * 3) + j + 1 + "";
+                        text.Text = ((i-2) * 3) + j + 1 + "";
+                        boton.Tag = ((i - 2) * 3) + j + 1 + "";
+                        boton.Click += Boton_Click;
                     }
                 }
                 
             }
         }
 
-        private void Button_Click(object sender, RoutedEventArgs e)
+        private void Boton_Click(object sender, RoutedEventArgs e)
         {
             Button boton = (Button)sender;
             pantalla.Text += boton.Tag.ToString();
